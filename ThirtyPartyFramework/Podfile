@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'ThirtyPartyFramework' do
+  # Comment the next line if you don't want to use dynamic frameworks
+#  use_frameworks!
+
+  # Pods for ThirtyPartyFramework
+pod 'OHHTTPStubs','~> 8.0.0'
+pod 'AFNetworking','~> 3.2.1'
+pod 'Masonry','~> 1.1.0'
+pod 'TTGTagCollectionView','~> 1.11.1'
+pod 'HCSStarRatingView','~> 1.5'
+pod 'VTMagic','~> 1.2.4'
+pod 'KVOController','~> 1.2.0'
+pod 'FDFullscreenPopGesture','~> 1.1'
+pod 'MMKV','~> 1.0.22'
+pod 'FLEX','~> 3.0.0'
+pod 'Aspects','~> 1.4.1'
+pod 'PLCrashReporter','~> 1.2.0'
+end
+
