@@ -41,7 +41,21 @@
      5.1 判断class的实例是否响应sliasSelector方法，如果不响应的话，增加sliasSelector方法，对应的是selector的IMP
      5.2 替换selector方法的实现为消息转发(_objc_msgForward)
  
-  最关键的部分是hook过的forwardInvocation：方法的实现aspect_swizzleForwardInvocation：
+  最关键的部分是hook过的forwardInvocation：方法的实现aspect_swizzleForwardInvocation
+ aspect_swizzleForwardInvocation里面的主要代码功能：
+ 1. 如果class没有实现@selector(forwardInvocation:)方法，就会增加这个方法，就像class_addMethod一样，但是IMP指向会被替换成新的实现，返回的originalImplementation为nil
+ 2. 如果class实现了@selector(forwardInvocation:)方法，会替换IMP指向新的实现，返回的originalImplementation为原来的方法实现，此时会再增加一个新方法，新方法的
+     IMP指向为originalImplementation
+ 
+ 最核心的功能代码其实都在__ASPECTS_ARE_BEING_CALLED__这个方法里面，这个方法是整个类的最核心功能的代码
+ 1. 取出aliasSelector对应的objectContainer和classContainer对象
+ 2. 执行类和对象Container的beforeAspects方法
+ 3. 如果有的话执行类和对象Container的InsteadAspects方法，否则的话执行target的aliasSelector方法(之前添加了aliasSelector方法，该方法的实现对应selector的IMP)
+ 4. 执行类和对象Container的afterAspects方法
+ 5. 如果之前第三步的两种路径都未执行的话，如果target响应“__aspects_forwardInvocation:”方法的话，执行__aspects_forwardInvocation(如果target实现了forwardInvocation:方法的话，会增加__aspects_forwardInvocation:方法，此方法对应的是forwardInvocation:的IMP)，如果不相应的话，会走doesNotRecognizeSelector方法，抛出异常
+ 
+ __ASPECTS_ARE_BEING_CALLED__的核心invokeWithInfo方法：
+ 
  
  
  
