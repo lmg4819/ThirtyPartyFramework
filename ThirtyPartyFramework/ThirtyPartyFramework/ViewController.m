@@ -70,7 +70,7 @@
 //    [self hcs_customInitMethod];
 //    [self vt_customInitMethod];
 //    [self kvo_customInitMethod];
-//    [self js_customInitMethod];
+    [self js_customInitMethod];
     
     [UIViewController aspect_hookSelector:@selector(viewWillAppear:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> info){
             if (info) {

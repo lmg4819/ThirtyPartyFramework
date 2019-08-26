@@ -250,16 +250,16 @@ static void __ASPECTS_ARE_BEING_CALLED__(__unsafe_unretained NSObject *self,SEL 
     JSAspectContainer *classContainer = aspect_getContainerForClass(object_getClass(self), aliasSelector);
     JSAspectInfo *info = [[JSAspectInfo alloc]initWithInstance:self invocation:invocation];
     
-    //before hooks
+    //before hooks block方法调用
     aspect_invoke(classContainer.beforeAspects, info);
     aspect_invoke(objectContainer.beforeAspects, info);
     
-    //Insteda hooks
+    //Insteda hooks block方法调用
     BOOL respondsToAlias = YES;
     if (objectContainer.insteadAspects.count || classContainer.insteadAspects.count) {
         aspect_invoke(classContainer.insteadAspects, info);
         aspect_invoke(objectContainer.insteadAspects, info);
-    }else{
+    }else{//如果instead Aspects为nil，则调用原方法的IMP
         Class klass = object_getClass(invocation.target);
         do {
             if ((respondsToAlias = [klass instancesRespondToSelector:aliasSelector])) {
@@ -269,7 +269,7 @@ static void __ASPECTS_ARE_BEING_CALLED__(__unsafe_unretained NSObject *self,SEL 
         } while (!respondsToAlias && (klass = class_getSuperclass(klass)));
     }
     
-    //after hooks
+    //after hooks block方法调用
     aspect_invoke(classContainer.afterAspects, info);
     aspect_invoke(objectContainer.afterAspects, info);
     

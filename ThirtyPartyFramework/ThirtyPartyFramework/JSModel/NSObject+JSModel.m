@@ -262,8 +262,7 @@ static NSDate *JSNSDateFromString(__unsafe_unretained NSString *string){
     #undef kParserNum
 }
 
-static void ModelSetValueToProperty(id model,id value,JSClassPropertyInfo *info)
-{
+static void ModelSetValueToProperty(id model,id value,JSClassPropertyInfo *info){
     if (info.isCNumber) {
         NSNumber *number = JSNSNumberCreateFromID(value);
         ModelSetNumberToProperty(model, number, info);

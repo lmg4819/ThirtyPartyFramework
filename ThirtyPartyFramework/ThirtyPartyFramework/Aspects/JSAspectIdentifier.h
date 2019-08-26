@@ -35,6 +35,10 @@ typedef NS_ENUM(NSUInteger,JSAspectOptions) {
 
 @interface JSAspectIdentifier : NSObject
 + (id)identifierWithSelector:(SEL)selector object:(id)object options:(JSAspectOptions)options block:(id)block error:(NSError **)error;
+
+/**
+ 使用Runtime调用回调的block
+ */
 - (BOOL)invokeWithInfo:(id<JSAspectInfo>)info;
 @property(nonatomic,assign) SEL selector;
 @property(nonatomic,strong) id block;

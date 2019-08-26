@@ -47,6 +47,9 @@ typedef struct _AspectBlock {
 @implementation JSAspectIdentifier
 
 #pragma mark - BlockSignature
+/*
+ 将传入的block转成方法签名返回
+ */
 static NSMethodSignature *aspect_blockMethodSignature(id block, NSError **error) {
     AspectBlockRef layout = (__bridge void *)block;
     if (!(layout->flags & AspectBlockFlagsHasSignature)) {
@@ -97,7 +100,9 @@ static BOOL aspect_isCompatibleBlockSignature(NSMethodSignature *blockSignature,
     return YES;
 }
 
-
+/*
+ 创建JSAspectIdentifier对象，包含了方法，block
+ */
 + (id)identifierWithSelector:(SEL)selector object:(id)object options:(JSAspectOptions)options block:(id)block error:(NSError *__autoreleasing *)error
 {
     NSCParameterAssert(block);

@@ -9,6 +9,10 @@
 #import "JSClassInfo.h"
 #import <objc/message.h>
 
+
+/**
+ 如果属性的数据类型为OC对象，获取该对象的具体NSType
+ */
 JSEncodeNSType JSEncodeGetNSTypeWithClass(Class cls){
     if (!cls) {
         return JSEncodeNSTypeUnKnown;
@@ -32,6 +36,9 @@ JSEncodeNSType JSEncodeGetNSTypeWithClass(Class cls){
     return JSEncodeNSTypeUnKnown;
 }
 
+/**
+ 根据属性的type判断属性是否为C语言的数据类型
+ */
 static BOOL JSEncodeTypeIsCNumber(JSEncodeType type)
 {
     switch (type) {
@@ -52,7 +59,9 @@ static BOOL JSEncodeTypeIsCNumber(JSEncodeType type)
             return NO;
     }
 }
-
+/*
+ 根据property_attribute来获取属性的Type
+ */
 JSEncodeType JSEncodeGetType(const char *type){
     JSEncodeType encodeType = JSEncodeTypeUnKnown;
     size_t len = strlen(type);
@@ -114,7 +123,7 @@ JSEncodeType JSEncodeGetType(const char *type){
             _encodeType = [NSString stringWithUTF8String:property_attribute.value];
             
             if ([attName isEqualToString:@"T"]) {
-//                NSLog(@"%@----%@------%@",_name,attName,_encodeType);
+                NSLog(@"%@----%@------%@",_name,attName,_encodeType);
                 _type = JSEncodeGetType(property_attribute.value);
                 _isCNumber = JSEncodeTypeIsCNumber(_type);
                 if (_type == JSEncodeTypeObject && _encodeType.length) {
@@ -133,10 +142,12 @@ JSEncodeType JSEncodeGetType(const char *type){
                 }
             }
         }
+        //释放property_attributes对象
         if (property_attributes) {
             free(property_attributes);
             property_attributes = NULL;
         }
+        //根据name，生成属性对应的set,get方法
         if (_name.length) {
             if (!_getter) {
                 _getter = NSSelectorFromString(_name);

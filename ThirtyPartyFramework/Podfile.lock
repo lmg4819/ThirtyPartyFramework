@@ -48,6 +48,7 @@ DEPENDENCIES:
   - HCSStarRatingView (~> 1.5)
   - KVOController (~> 1.2.0)
   - Masonry (~> 1.1.0)
+  - MMKV
   - MMKV (~> 1.0.22)
   - OHHTTPStubs (~> 8.0.0)
   - PLCrashReporter (~> 1.2.0)
@@ -83,6 +84,6 @@ SPEC CHECKSUMS:
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
 
-PODFILE CHECKSUM: fd9cbd7e8813c8d40ccc859d79f4037ca954fc32
+PODFILE CHECKSUM: 790ae9045c8ecc8107fe3db55510a0f2c10bd927
 
 COCOAPODS: 1.7.1

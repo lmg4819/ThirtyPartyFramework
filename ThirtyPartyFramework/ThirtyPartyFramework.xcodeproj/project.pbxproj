@@ -48,7 +48,7 @@
 		58528E5D230291AF009AD669 /* KSCPU_arm64.c in Sources */ = {isa = PBXBuildFile; fileRef = 58528E45230291AF009AD669 /* KSCPU_arm64.c */; };
 		58528E5E230291AF009AD669 /* KSID.c in Sources */ = {isa = PBXBuildFile; fileRef = 58528E47230291AF009AD669 /* KSID.c */; };
 		58528E6123029220009AD669 /* GitReposity.m in Sources */ = {isa = PBXBuildFile; fileRef = 58528E6023029220009AD669 /* GitReposity.m */; };
-		58E40AB923011686008A1C00 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E40AB823011686008A1C00 /* AppDelegate.m */; };
+		58E40AB923011686008A1C00 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 58E40AB823011686008A1C00 /* AppDelegate.mm */; };
 		58E40ABC23011686008A1C00 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E40ABB23011686008A1C00 /* ViewController.m */; };
 		58E40ABF23011686008A1C00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58E40ABD23011686008A1C00 /* Main.storyboard */; };
 		58E40AC123011687008A1C00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58E40AC023011687008A1C00 /* Assets.xcassets */; };
@@ -142,7 +142,7 @@
 		58528E6023029220009AD669 /* GitReposity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitReposity.m; sourceTree = "<group>"; };
 		58E40AB423011686008A1C00 /* ThirtyPartyFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirtyPartyFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E40AB723011686008A1C00 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		58E40AB823011686008A1C00 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		58E40AB823011686008A1C00 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		58E40ABA23011686008A1C00 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		58E40ABB23011686008A1C00 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		58E40ABE23011686008A1C00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 				5844DDAF23014198008A79A5 /* TTGTagCollectionView */,
 				58E40ACD2301174D008A1C00 /* OHHTTPStub */,
 				58E40AB723011686008A1C00 /* AppDelegate.h */,
-				58E40AB823011686008A1C00 /* AppDelegate.m */,
+				58E40AB823011686008A1C00 /* AppDelegate.mm */,
 				58E40ABA23011686008A1C00 /* ViewController.h */,
 				58E40ABB23011686008A1C00 /* ViewController.m */,
 				58E40ABD23011686008A1C00 /* Main.storyboard */,
@@ -583,7 +583,7 @@
 				58528E6123029220009AD669 /* GitReposity.m in Sources */,
 				580008D22305362F003A68F9 /* JSAspectIdentifier.m in Sources */,
 				58528E51230291AF009AD669 /* KSCrashMonitor.c in Sources */,
-				58E40AB923011686008A1C00 /* AppDelegate.m in Sources */,
+				58E40AB923011686008A1C00 /* AppDelegate.mm in Sources */,
 				58528E5D230291AF009AD669 /* KSCPU_arm64.c in Sources */,
 				5844DDE22301887E008A79A5 /* JSCatonMonitor.m in Sources */,
 				58528E49230291AF009AD669 /* KSCrashMonitor_System.m in Sources */,

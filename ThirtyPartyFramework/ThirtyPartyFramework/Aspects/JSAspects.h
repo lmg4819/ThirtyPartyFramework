@@ -21,12 +21,12 @@
 - (id)aspect_hookSelector:(SEL)selector
               withOptions:(JSAspectOptions)options
                usingBlock:(id)block
-                    espectrror:(NSError **)error;
+                    error:(NSError **)error;
 
 @end
 
 /*
- 先将self 和 selector options block error
+ 先将self 和 selector options block error参数
  1.根据selector生成aliasSelector   for example  viewWillAppear:------->aspects_viewWillAppear
  2.根据aliasSelector生成对应的JSAspectContainer
  3.根据selector和selector options block error生成JSAspectIdentifier，放入对应的aspectsArray里面
@@ -53,10 +53,6 @@
  3. 如果有的话执行类和对象Container的InsteadAspects方法，否则的话执行target的aliasSelector方法(之前添加了aliasSelector方法，该方法的实现对应selector的IMP)
  4. 执行类和对象Container的afterAspects方法
  5. 如果之前第三步的两种路径都未执行的话，如果target响应“__aspects_forwardInvocation:”方法的话，执行__aspects_forwardInvocation(如果target实现了forwardInvocation:方法的话，会增加__aspects_forwardInvocation:方法，此方法对应的是forwardInvocation:的IMP)，如果不相应的话，会走doesNotRecognizeSelector方法，抛出异常
- 
- __ASPECTS_ARE_BEING_CALLED__的核心invokeWithInfo方法：
- 
- 
  
  
  */
