@@ -78,17 +78,6 @@
             }
     } error:nil];
     
-//    [UIViewController aspect_hookSelector:@selector(viewWillAppear:) withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> info){
-//        if (info) {
-//            NSLog(@"----------%@---------",info.instance);
-//        }
-//    } error:nil];
-    
-//    [self aspect_hookSelector:@selector(touchesBegan:withEvent:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> info){
-//        if (info) {
-//            NSLog(@"========%@==========",info.instance);
-//        }
-//    } error:nil];
     
     
     
